@@ -1,6 +1,6 @@
 ---
-id: 1
-title: "O Vazio Entre as Teclas"
+id: 3
+title: "o_vazio_entre_as_teclas.md"
 date: "2026-03-21"
 genre: "cronica"
 ---

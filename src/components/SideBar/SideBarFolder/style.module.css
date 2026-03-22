@@ -3,7 +3,7 @@
 }
 
 .fileItem {
-    padding: 0px 40px;
+    padding: 0px 20px 0px 60px;
 }
 
 .items {
@@ -13,7 +13,7 @@
     font-size: 18px;
 }
 
-.items:hover {
+.items:hover, .fileItem:hover {
     background-color: #333333;
 }
 
@@ -27,5 +27,5 @@
 .fileItem > p {
     white-space: nowrap;     
     overflow: hidden;        
-    text-overflow: ellipsis;            
+    text-overflow: ellipsis;           
 }

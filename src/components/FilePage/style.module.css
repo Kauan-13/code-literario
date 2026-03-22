@@ -1,0 +1,14 @@
+.filePage {
+    padding: 20px 200px;
+    letter-spacing: 1pt;
+}
+
+.filePage h1 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+}
+
+.filePage p{
+    text-indent: 20px;
+    text-align: justify;
+}
