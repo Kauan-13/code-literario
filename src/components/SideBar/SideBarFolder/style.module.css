@@ -1,0 +1,31 @@
+.folderItem {
+    padding: 0px 20px;
+}
+
+.fileItem {
+    padding: 0px 40px;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.items:hover {
+    background-color: #333333;
+}
+
+.ulFiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.fileItem > p {
+    white-space: nowrap;     
+    overflow: hidden;        
+    text-overflow: ellipsis;            
+}

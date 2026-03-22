@@ -1,0 +1,11 @@
+.navBar {
+    height: 100vh;
+    width: 250px;
+    background-color: #181818;
+    color: white;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

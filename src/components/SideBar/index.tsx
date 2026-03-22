@@ -1,23 +1,18 @@
 import usePost from '../../hooks/usePost';
+import SideBarFolder from './SideBarFolder';
+import style from "./style.module.css";
 
 const SideBar = () => {
     const {posts, genres} = usePost()
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-        {
-            [...genres].map((genre, key) => (
-                <div key={key}>
-                    <p>{genre}</p>
-                    {
-                        posts.filter(p => p.genre === genre).map((post, key) => (
-                            <p key={key}>{post.title}</p>
-                        ))
-                    }
-                </div>
-            ))
-        }
-        </div>
+        <nav className={style.navBar}>
+            {
+                [...genres].map((genre, key) => (
+                    <SideBarFolder key={key} genre={genre} posts={posts.filter(p => p.genre === genre)}/>
+                ))
+            }
+        </nav>
     );
 }
 
