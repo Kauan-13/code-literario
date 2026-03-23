@@ -1,6 +1,8 @@
 .mainSection {
     background-color: #1f1f1f;
+    height: calc(100vh - 40px);
     width: 100%;
     color: white;
     padding: 20px 20px;
+    overflow-y: auto;
 }
