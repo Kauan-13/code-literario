@@ -1,7 +1,5 @@
 .navBar {
     height: calc(100vh - 20px);
-    min-width: 250px;
-    width: 250px;
     background-color: #181818;
     color: white;
     padding-top: 20px;
@@ -13,4 +11,20 @@
     border-right: 1px solid rgba(255, 255, 255, 0.2);
 
     user-select: none;
+
+    flex-shrink: 0;
+}
+
+.topNavBar {
+    display: flex;
+    justify-content: end;
+
+    font-size: 24px;
+    padding-right: 20px;
+}
+
+.folders {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

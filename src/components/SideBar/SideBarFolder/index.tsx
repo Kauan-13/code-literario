@@ -1,7 +1,7 @@
 import { useState } from "react"
 import type { Post } from "../../../types/Post"
 import style from "./style.module.css"
-import { FaFolder, FaFolderOpen, FaFile } from "react-icons/fa6";
+import { FaFolder, FaFolderOpen } from "react-icons/fa6";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";

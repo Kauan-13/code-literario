@@ -12,7 +12,7 @@ const FileItem = ({id, title, className}: Props) => {
     return (
         <li title={title}>
             <Link to={"/file/" + id} className={`${style.items} ${className}`}>
-                <FaFile />
+                <FaFile className={style.icon}/>
                 <p>{title}</p>
             </Link>
         </li>
