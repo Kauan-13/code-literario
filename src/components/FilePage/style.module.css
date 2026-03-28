@@ -1,5 +1,5 @@
 .filePage {
-    padding: 20px 4rem;
+    padding: 84px 8rem;
     letter-spacing: 0.20ch;
     word-wrap: break-word;
     -webkit-hyphens: auto; 
@@ -31,4 +31,16 @@
     margin: 20px 0px;
     text-align: center;
     font-size: 24px;
+}
+
+@media (max-width: 767px) {
+    .filePage {
+        letter-spacing: 0;
+        padding-left:  2rem;
+        padding-right: 2rem;
+    }
+
+    .filePage > p {
+        font-size: 16px;
+    }
 }

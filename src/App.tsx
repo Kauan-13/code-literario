@@ -1,6 +1,4 @@
 import { HashRouter, Route, Routes } from 'react-router-dom'
-import style from "./App.module.css"
-import SideBar from './components/SideBar'
 import FolderPage from './components/FolderPage'
 import FilePage from './components/FilePage'
 import MainSection from './components/MainSection'
@@ -10,14 +8,13 @@ const App = () => {
   
   return (
     <HashRouter>
-        <section className={style.sideBarPage}>
-            <SideBar/>
+        <MainSection>
             <Routes>
-                <Route path="/" element={<MainSection><h1 className={fonts.jetbrainsMono}>Hello World</h1></MainSection>}></Route>
+                <Route path="/" element={<h1 className={fonts.jetbrainsMono}>Hello World</h1>}></Route>
                 <Route path="/folder/:genre" element={<FolderPage/>}></Route>
-                <Route path="/file/:id" element={<FilePage/>}></Route>
+                <Route path="/file/:title" element={<FilePage/>}></Route>
             </Routes>
-        </section>
+        </MainSection>
     </HashRouter>
   )
 }

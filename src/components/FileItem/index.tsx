@@ -4,14 +4,17 @@ import { Link } from "react-router-dom"
 
 interface Props {
     className?: string,
-    id: number,
-    title: string
+    title: string,
+    isMobile?: boolean,
+    onClickCloseBar?: () => void
 }
 
-const FileItem = ({id, title, className}: Props) => {
+const FileItem = ({ title, className, isMobile, onClickCloseBar}: Props) => {
     return (
-        <li title={title}>
-            <Link to={"/file/" + id} className={`${style.items} ${className}`}>
+        <li title={title} onClick={() => {
+            isMobile && onClickCloseBar ? onClickCloseBar() : null
+        }}>
+            <Link to={"/file/" + title} className={`${style.items} ${className}`}>
                 <FaFile className={style.icon}/>
                 <p>{title}</p>
             </Link>

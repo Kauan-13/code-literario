@@ -1,21 +1,25 @@
-import { useState } from 'react';
 import usePost from '../../hooks/usePost';
 import SideBarFolder from './SideBarFolder';
 import style from "./style.module.css";
 import { BsLayoutSidebar } from "react-icons/bs";
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
 
-const SideBar = () => {
+interface Props {
+    isOpen: boolean,
+    isMobile: boolean,
+    onClickOpen: () => void,
+}
+
+const SideBar = ({isOpen, isMobile, onClickOpen}: Props) => {
     const {posts, genres} = usePost();
-    const [isOpen, setIsOpen] = useState(true);
 
     const sidebarVariants: Variants = {
         open: { 
-            width: 250,
+            width: isMobile ? "100vw" : 250,
             transition: { type: "spring", stiffness: 300, damping: 30 }
         },
         closed: { 
-            width: 64,
+            width: isMobile ? "0vw" : 64,
             transition: { type: "spring", stiffness: 200, damping: 30 }
         }
     };
@@ -28,7 +32,7 @@ const SideBar = () => {
             variants={sidebarVariants}
         >
             <div className={style.topNavBar}>
-                 <BsLayoutSidebar onClick={() => setIsOpen(c => !c)}/>
+                 <BsLayoutSidebar onClick={onClickOpen}/>
             </div>
             <AnimatePresence mode="wait" initial={false}>
                 {isOpen && (
@@ -45,6 +49,8 @@ const SideBar = () => {
                                 key={index} 
                                 genre={genre} 
                                 posts={posts.filter(p => p.genre === genre)}
+                                isMobile = {isMobile}
+                                onClickCloseBar={onClickOpen}
                             />
                         ))}
                     </motion.div>

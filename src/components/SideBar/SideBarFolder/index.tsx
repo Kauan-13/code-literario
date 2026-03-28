@@ -9,19 +9,22 @@ import FileItem from "../../FileItem";
 
 interface Props {
     genre: string,
-    posts: Post[]
+    posts: Post[],
+    isMobile: boolean,
+    onClickCloseBar: () => void
 }
 
-const SideBarFolder = ({genre, posts}: Props) => {
-    const [contentVisibility, setContentVisibility] = useState(false)
-    const navigate = useNavigate()
+const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
+    const [contentVisibility, setContentVisibility] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <ul>
             <div className={`${style.items} ${style.folderItem}`} 
                 onClick={() => {
-                    setContentVisibility(true)
-                    navigate("/folder/" + genre)
+                    setContentVisibility(true);
+                    navigate("/folder/" + genre);
+                    isMobile ? onClickCloseBar() : null
                 }}>
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
@@ -56,7 +59,7 @@ const SideBarFolder = ({genre, posts}: Props) => {
                     <ul className={style.ulFiles}>
                         {
                             posts.map((post, key) => (
-                                <FileItem key={key} title={post.title} id={post.id} className={style.fileItem}/>
+                                <FileItem key={key} title={post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
                             ))
                         }
                     </ul>
