@@ -16,7 +16,7 @@ const FolderPage = () => {
             <ul>
                 {
                     postByGenre.map((post, key) => (
-                        <FileItem key={key} title={post.title} />
+                        <FileItem key={key} link={"/file/" + post.title} title={post.title} />
                     ))
                 }
             </ul>

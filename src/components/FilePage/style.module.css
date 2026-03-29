@@ -33,6 +33,18 @@
     font-size: 24px;
 }
 
+.filePage p:has(img) {
+    text-indent: 0;
+}
+
+.filePage img {
+    width: 100%;
+}
+
+.poema p{
+    text-indent: 0;
+}
+
 @media (max-width: 767px) {
     .filePage {
         letter-spacing: 0;

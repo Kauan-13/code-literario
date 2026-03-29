@@ -3,6 +3,7 @@ import SideBarFolder from './SideBarFolder';
 import style from "./style.module.css";
 import { BsLayoutSidebar } from "react-icons/bs";
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
+import FileItem from '../FileItem';
 
 interface Props {
     isOpen: boolean,
@@ -36,7 +37,7 @@ const SideBar = ({isOpen, isMobile, onClickOpen}: Props) => {
             </div>
             <AnimatePresence mode="wait" initial={false}>
                 {isOpen && (
-                    <motion.div
+                    <motion.ul
                         className={style.folders}
                         key={isOpen ? "open" : "close"}
                         initial={{ opacity: 0 }}
@@ -44,6 +45,9 @@ const SideBar = ({isOpen, isMobile, onClickOpen}: Props) => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
+                        {
+                            <FileItem title="README.md" link="/" isMobile={isMobile} onClickCloseBar={onClickOpen} className={style.readme}/>
+                        }
                         {[...genres].map((genre, index) => (
                             <SideBarFolder 
                                 key={index} 
@@ -53,7 +57,7 @@ const SideBar = ({isOpen, isMobile, onClickOpen}: Props) => {
                                 onClickCloseBar={onClickOpen}
                             />
                         ))}
-                    </motion.div>
+                    </motion.ul>
                 )}
             </AnimatePresence>
         </motion.nav>

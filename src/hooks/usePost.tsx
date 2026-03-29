@@ -7,9 +7,15 @@ const modules = import.meta.glob<{ default: String }>('/src/content/*.md', {
   eager: true 
 });
 
+const README = import.meta.glob<{ default: String }>('/README.md', { 
+  query: '?raw', 
+  eager: true 
+});
+
 const usePost = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [genres, setGenres] = useState<Set<string>>(new Set())
+    const [readme, setReadme] = useState<Post>();
 
     useEffect(() => {
         const loadedPosts = Object.keys(modules).map((path) => {
@@ -19,10 +25,10 @@ const usePost = () => {
 
             return {
                 id: data.id,
-                title: data.title || 'Sem título',
-                date: data.date || '',
+                title: data.title || "sem_titulo",
+                date: data.date || "",
                 content: body,
-                genre: data.genre
+                genre: data.genre || "sem_genero"
             };
         });
 
@@ -31,9 +37,25 @@ const usePost = () => {
         setPosts(loadedPosts);
     }, []);
 
+    useEffect(() => {
+        const loadedReadme = Object.keys(README).map((path) => {
+            // O conteúdo bruto agora está em .default devido ao '?raw'
+            const rawContent = (README[path] as any).default; 
+            const { data, content: body } = matter(rawContent); 
 
+            return {
+                id: data.id,
+                title: data.title || "sem_titulo",
+                date: data.date || "",
+                content: body,
+                genre: data.genre || "sem_genero"
+            };
+        });
 
-    return {posts, genres}
+        setReadme(loadedReadme[0]);
+    }, []);
+
+    return {posts, genres, readme}
 }
 
 export default usePost

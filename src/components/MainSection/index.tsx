@@ -18,18 +18,24 @@ const MainSection = ({children, className}: Props) => {
     const location = useLocation();
 
     return (
-        <main className={style.main}>
-            <SideBar isOpen={isOpen} isMobile={isMobile} onClickOpen={() => setIsOpen(o => !o)}/>
-            <section className={`${style.mainSection} ${className}`}>
-                <div className={`${style.topMain} ${fonts.jetbrainsMono}`}> 
-                    {isMobile && !isOpen ?
-                        <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/> : null
-                    }
-                    <p>{location.pathname}</p>
-                </div>
-                {children}
-            </section>
-        </main>
+        <>
+            <header className={`${style.header} ${fonts.jetbrainsMono}`}>
+                    <img src="/logo1.png" alt="logo" />
+                    <h1>Code Literário</h1>
+            </header>
+            <main className={style.main}>
+                <SideBar isOpen={isOpen} isMobile={isMobile} onClickOpen={() => setIsOpen(o => !o)}/>
+                <section className={`${style.mainSection} ${className}`}>
+                    <div className={`${style.topMain} ${fonts.jetbrainsMono}`}> 
+                        {isMobile && !isOpen ?
+                            <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/> : null
+                        }
+                        <p>{location.pathname}</p>
+                    </div>
+                    {children}
+                </section>
+            </main>
+        </>
     )
 }
 

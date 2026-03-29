@@ -19,7 +19,7 @@ const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
     const navigate = useNavigate();
 
     return (
-        <ul>
+        <li>
             <div className={`${style.items} ${style.folderItem}`} 
                 onClick={() => {
                     setContentVisibility(true);
@@ -59,13 +59,13 @@ const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
                     <ul className={style.ulFiles}>
                         {
                             posts.map((post, key) => (
-                                <FileItem key={key} title={post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
+                                <FileItem key={key} title={post.title} link={"/file/" + post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
                             ))
                         }
                     </ul>
                 : null
             }
-        </ul>  
+        </li>  
     )
 }
 

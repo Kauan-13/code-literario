@@ -1,5 +1,5 @@
 .navBar {
-    height: calc(100vh - 20px);
+    height: calc(100vh - 53px);
     background-color: #181818;
     color: white;
     padding-top: 20px;
@@ -31,10 +31,18 @@
     gap: 10px;
 }
 
+.readme {
+    padding: 0px 20px;
+}
+
+.readme:hover {
+    background-color: #333333;
+}
+
 @media (max-width: 767px) {
     .navBar {
         position: fixed;
-        top: 0;
+        top: 32px;
         left: 0;
         
     }

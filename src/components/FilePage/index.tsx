@@ -3,17 +3,23 @@ import { useParams } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import style from "./style.module.css";
 import fonts from "../../css/fonts.module.css";
+import type { Post } from "../../types/Post";
 
 const FilePage = () => {
     const { title } = useParams<{ title: string }>();
-    const {posts} = usePost();
+    const {posts, readme} = usePost();
+    let post: Post | undefined;
 
-    const postById = posts.find(p => p.title == title)
-
+    if (title) {
+        post = posts.find(p => p.title == title);
+    } else {
+        post = readme;
+    }
+    
     return (
-        <section className={`${style.filePage} ${fonts.jetbrainsMono}`}>
+        <section className={`${style.filePage} ${fonts.jetbrainsMono} ${post?.genre == "poema" ? style.poema : null}`}>
             <ReactMarkdown>
-                {postById?.content}
+                {post?.content}
             </ReactMarkdown>
         </section>
     )
