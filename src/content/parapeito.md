@@ -7,7 +7,7 @@ genre: "miniconto"
 
 # Parapeito
 
-Eram 22 horas quando os barulhos no quarto ao lado começaram. Tinha visto um homem com vestes caras – Como alguém rico estaria numa sarjeta como essa? – pensei.
+Eram 22 horas quando os barulhos no quarto ao lado começaram. Tinha visto um homem com vestes caras — Como alguém rico estaria numa sarjeta como essa? — pensei.
 
 Estava na sacada quando uma limusine parou em frente ao prédio. No quarto ao lado os barulhos continuavam, incansáveis.
 
