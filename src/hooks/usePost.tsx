@@ -26,7 +26,8 @@ const usePost = () => {
             return {
                 id: data.id,
                 title: data.title || "sem_titulo",
-                date: data.date || "",
+                created: new Date(data.created || ""),
+                modified: new Date(data.modified || ""),
                 content: body,
                 genre: data.genre || "sem_genero"
             };
@@ -45,10 +46,11 @@ const usePost = () => {
 
             return {
                 id: data.id,
-                title: data.title || "sem_titulo",
-                date: data.date || "",
+                title: data.title || "",
+                created: data.created || "",
+                modified: data.modified || "",
                 content: body,
-                genre: data.genre || "sem_genero"
+                genre: data.genre || ""
             };
         });
 

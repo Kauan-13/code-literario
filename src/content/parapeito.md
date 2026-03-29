@@ -1,7 +1,8 @@
 ---
 id: 3
 title: "parapeito.md"
-date: "2025-07-15"
+created: "2025/07/15"
+modified: "2025/03/29"
 genre: "miniconto"
 ---
 
@@ -14,3 +15,4 @@ Estava na sacada quando uma limusine parou em frente ao prédio. No quarto ao la
 Passos no corredor e batidas fortes na porta ao lado, para sacada correu uma mulher assustada, usava pouca roupa e desengonçada.
 
 Me pediu a mão, mas a distância era muita, e minha força era pouca. Voltei ao meu quarto e os sons pararam.
+

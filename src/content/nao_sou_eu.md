@@ -1,7 +1,8 @@
 ---
 id: 4
 title: "nao_sou_eu.md"
-date: "2026-01-27"
+created: "2026/01/27"
+modified: "2026/01/27"
 genre: "monologo"
 ---
 

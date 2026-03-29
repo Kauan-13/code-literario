@@ -1,5 +1,5 @@
 .navBar {
-    height: calc(100vh - 53px);
+    height: 100%;
     background-color: #181818;
     color: white;
     padding-top: 20px;
@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 10px;
 
+    box-sizing: border-box;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
 
     user-select: none;

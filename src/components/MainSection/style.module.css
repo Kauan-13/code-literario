@@ -1,10 +1,20 @@
-.main {
+.appWrapper {
     display: flex;
+    flex-direction: column;
+    height: 100svh; /* Altura total da tela do celular */
+    width: 100vw;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
 }
 
 .header {
     height: 32px;
     background-color: #181818;
+    box-sizing: border-box;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
@@ -24,10 +34,11 @@
 }
 
 .mainSection {
+    flex: 1;
     display: flex;
     flex-direction: column;
     background-color: #1f1f1f;
-    height: calc(100vh - 33px);
+    padding-top: 20px;
     width: 100%;
     color: white;
     overflow-y: auto;
@@ -36,18 +47,59 @@
 .topMain {
     position: fixed;
     min-height: 64px;
-    width: calc(100% - 20px);
+    width: 100%;
     background-color: #181818;
+    box-sizing: border-box;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     padding-left: 20px;
     font-size: 16px;
     gap: 20px;
+    top: 32px;
 }
 
 .icon {
     font-size: 24px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+
+    min-height: 35px;
+    
+    background-color: #181818;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    
+    padding-right: 20px;
+    padding-top: 8px;
+    /* Aqui o segredo: um padding base + a safe area */
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+}
+
+.footer .date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.footer > a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.footer > p, .footer > svg {
+    font-size: 14px;
 }
 
 @media (max-width: 767px) {

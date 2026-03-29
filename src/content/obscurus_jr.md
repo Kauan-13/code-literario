@@ -1,7 +1,8 @@
 ---
 id: 2
 title: "obscurus_jr.md"
-date: "2026-01-27"
+created: "2026/01/27"
+modified: "2026/03/29"
 genre: "miniconto"
 ---
 
