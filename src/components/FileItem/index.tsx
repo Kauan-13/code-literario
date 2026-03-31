@@ -13,7 +13,7 @@ interface Props {
 const FileItem = ({ title, link, className, isMobile, onClickCloseBar}: Props) => {
     return (
         <li title={title} onClick={() => {
-            isMobile && onClickCloseBar ? onClickCloseBar() : null
+            if (isMobile && onClickCloseBar) onClickCloseBar()
         }}>
             <Link to={link} className={`${style.items} ${className}`}>
                 <FaFile className={style.icon}/>

@@ -32,8 +32,8 @@ const MainSection = ({children, className}: Props) => {
                 <SideBar isOpen={isOpen} isMobile={isMobile} onClickOpen={() => setIsOpen(o => !o)}/>
                 <section className={`${style.mainSection} ${className}`}>
                     <div className={`${style.topMain} ${fonts.jetbrainsMono}`}> 
-                        {isMobile && !isOpen ?
-                            <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/> : null
+                        {isMobile && !isOpen &&
+                            <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/>
                         }
                         <p>{location.pathname}</p>
                     </div>

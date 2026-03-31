@@ -17,7 +17,7 @@ const FilePage = () => {
     }
     
     return (
-        <section className={`${style.filePage} ${fonts.jetbrainsMono} ${post?.genre == "poema" ? style.poema : null}`}>
+        <section className={`${style.filePage} ${fonts.jetbrainsMono} ${post?.genre == "poema" && style.poema}`}>
             <ReactMarkdown>
                 {post?.content}
             </ReactMarkdown>

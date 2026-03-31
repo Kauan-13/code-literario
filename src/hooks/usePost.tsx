@@ -1,63 +1,55 @@
-import { useEffect, useState } from "react";
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
+
+import { useMemo, useState } from "react";
 import type { Post } from "../types/Post";
 import matter from "gray-matter";
 
-const modules = import.meta.glob<{ default: String }>('/src/content/*.md', { 
+const modules = import.meta.glob<{ default: string }>('/src/content/*.md', { 
   query: '?raw', 
   eager: true 
 });
 
-const README = import.meta.glob<{ default: String }>('/README.md', { 
+const README = import.meta.glob<{ default: string }>('/README.md', { 
   query: '?raw', 
   eager: true 
 });
 
-const usePost = () => {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [genres, setGenres] = useState<Set<string>>(new Set())
-    const [readme, setReadme] = useState<Post>();
+const initialPosts: Post[] = Object.keys(modules).map((path) => {
+    const rawContent: string = (modules[path]).default;
+    const { data, content: body } = matter(rawContent);
 
-    useEffect(() => {
-        const loadedPosts = Object.keys(modules).map((path) => {
-            // O conteúdo bruto agora está em .default devido ao '?raw'
-            const rawContent = (modules[path] as any).default; 
-            const { data, content: body } = matter(rawContent); 
+    return {
+        id: data.id,
+        title: data.title || "sem_titulo",
+        created: new Date(data.created || ""),
+        modified: new Date(data.modified || ""),
+        content: body,
+        genre: data.genre || "sem_genero"
+    };
+});
 
-            return {
-                id: data.id,
-                title: data.title || "sem_titulo",
-                created: new Date(data.created || ""),
-                modified: new Date(data.modified || ""),
-                content: body,
-                genre: data.genre || "sem_genero"
-            };
-        });
+const readmeModule = Object.values(README)[0];
+const { data, content: body } = matter(readmeModule.default);
 
-        setGenres(new Set(loadedPosts.map(p => p.genre)))
+const initialReadme: Post = {
+    id: data.id,
+    title: data.title || "README",
+    created: new Date(data.created || ""),
+    modified: new Date(data.modified || ""),
+    content: body,
+    genre: data.genre || ""
+};
 
-        setPosts(loadedPosts);
-    }, []);
+export const usePost = () => {
+    const [posts] = useState<Post[]>(initialPosts);
+    const [readme] = useState<Post>(initialReadme);
 
-    useEffect(() => {
-        const loadedReadme = Object.keys(README).map((path) => {
-            // O conteúdo bruto agora está em .default devido ao '?raw'
-            const rawContent = (README[path] as any).default; 
-            const { data, content: body } = matter(rawContent); 
+    const genres = useMemo(() => {
+        return new Set(posts.map(p => p.genre));
+    }, [posts]);
 
-            return {
-                id: data.id,
-                title: data.title || "",
-                created: data.created || "",
-                modified: data.modified || "",
-                content: body,
-                genre: data.genre || ""
-            };
-        });
-
-        setReadme(loadedReadme[0]);
-    }, []);
-
-    return {posts, genres, readme}
-}
+    return { posts, readme, genres };
+};
 
 export default usePost

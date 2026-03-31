@@ -24,7 +24,7 @@ const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
                 onClick={() => {
                     setContentVisibility(true);
                     navigate("/folder/" + genre);
-                    isMobile ? onClickCloseBar() : null
+                    if (isMobile) onClickCloseBar();
                 }}>
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
@@ -55,15 +55,14 @@ const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
                 <p>{genre}</p>
             </div>
             {
-                contentVisibility ?
-                    <ul className={style.ulFiles}>
-                        {
-                            posts.map((post, key) => (
-                                <FileItem key={key} title={post.title} link={"/file/" + post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
-                            ))
-                        }
-                    </ul>
-                : null
+                contentVisibility &&
+                <ul className={style.ulFiles}>
+                    {
+                        posts.map((post, key) => (
+                            <FileItem key={key} title={post.title} link={"/file/" + post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
+                        ))
+                    }
+                </ul>
             }
         </li>  
     )
