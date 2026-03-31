@@ -6,7 +6,7 @@ const NotFound = () => {
         <div className={`${style.notFound} ${fonts.jetbrainsMono}`}>
             <h2>404</h2>
             <p>Ops... Parece que a página que você procura não existe</p>
-            <img src="/logo1.png" alt="logo"/>
+            <img src="./logo1.png" alt="logo"/>
         </div>
     )
 };
