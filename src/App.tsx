@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import FolderPage from './components/FolderPage'
 import FilePage from './components/FilePage'
 import MainSection from './components/MainSection'
+import NotFound from './components/NotFound'
 
 const App = () => {
   
@@ -9,9 +10,10 @@ const App = () => {
     <HashRouter>
         <MainSection>
             <Routes>
-                <Route path="/" element={<FilePage/>}></Route>
-                <Route path="/folder/:genre" element={<FolderPage/>}></Route>
-                <Route path="/file/:title" element={<FilePage/>}></Route>
+                <Route path="/" element={<FilePage/>}/>
+                <Route path="/folder/:genre" element={<FolderPage/>}/>
+                <Route path="/file/:title" element={<FilePage/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </MainSection>
     </HashRouter>

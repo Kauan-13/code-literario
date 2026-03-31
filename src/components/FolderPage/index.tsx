@@ -4,6 +4,7 @@ import FileItem from "../FileItem";
 import style from "./style.module.css"
 import fonts from "../../css/fonts.module.css";
 import useIsMobile from "../../hooks/useIsMobile";
+import NotFound from "../NotFound";
 
 const FolderPage = () => {
     const { genre } = useParams<{ genre: string }>();
@@ -12,6 +13,10 @@ const FolderPage = () => {
     const navigate = useNavigate();
 
     const postByGenre = posts.filter(p => p.genre == genre);
+
+    if (postByGenre.length === 0) {
+        return <NotFound/>
+    }
 
     return (
         <section className={`${style.folderPage} ${fonts.jetbrainsMono}`}>

@@ -4,6 +4,7 @@ import usePost from "../../hooks/usePost";
 import style from "./style.module.css";
 import fonts from "../../css/fonts.module.css";
 import type { Post } from "../../types/Post";
+import NotFound from "../NotFound";
 
 const FilePage = () => {
     const { title } = useParams<{ title: string }>();
@@ -14,6 +15,10 @@ const FilePage = () => {
         post = posts.find(p => p.title == title);
     } else {
         post = readme;
+    }
+
+    if (post === undefined) {
+        return <NotFound/>
     }
     
     return (

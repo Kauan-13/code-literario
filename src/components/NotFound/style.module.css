@@ -1,0 +1,14 @@
+.notFound{
+    padding: 84px 4rem;
+    text-align: center;
+}
+
+.notFound > h2 {
+    font-size: 100px;
+}
+
+.notFound > img {
+    width: 100px; 
+    margin-top: 20px; 
+    opacity: 0.5;
+}
