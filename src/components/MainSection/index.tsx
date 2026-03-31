@@ -25,7 +25,7 @@ const MainSection = ({children, className}: Props) => {
     return (
         <div className={style.appWrapper}>
             <header className={`${style.header} ${fonts.jetbrainsMono}`}>
-                    <img src="/logo1.png" alt="logo" />
+                    <img src="./logo1.png" alt="logo" />
                     <h1>Code Literário</h1>
             </header>
             <main className={style.main}>

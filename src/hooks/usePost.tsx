@@ -1,6 +1,3 @@
-import { Buffer } from 'buffer';
-window.Buffer = Buffer;
-
 import { useMemo, useState } from "react";
 import type { Post } from "../types/Post";
 import matter from "gray-matter";
