@@ -8,7 +8,7 @@ export default defineConfig({
   define: {
     'global': 'globalThis',
     'process.env': {},
-    'Buffer': ['buffer', 'Buffer'],
+    'Buffer': 'Buffer', 
   },
   server: {
       host: "0.0.0.0",
