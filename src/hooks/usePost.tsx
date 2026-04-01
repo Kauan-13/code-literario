@@ -12,17 +12,18 @@ const README = import.meta.glob<{ default: string }>('/README.md', {
   eager: true 
 });
 
-const initialPosts: Post[] = Object.keys(modules).map((path) => {
+const initialPosts: Post[] = Object.keys(modules).map((path, id) => {
     const rawContent: string = (modules[path]).default;
     const { data, content: body } = matter(rawContent);
 
     return {
-        id: data.id,
+        id: id + 2,
         title: data.title || "sem_titulo",
         created: new Date(data.created || ""),
         modified: new Date(data.modified || ""),
         content: body,
-        genre: data.genre || "sem_genero"
+        genre: data.genre || "sem_genero",
+        completed: data.completed || false
     };
 });
 
@@ -30,12 +31,13 @@ const readmeModule = Object.values(README)[0];
 const { data, content: body } = matter(readmeModule.default);
 
 const initialReadme: Post = {
-    id: data.id,
+    id: 1,
     title: data.title || "README",
     created: new Date(data.created || ""),
     modified: new Date(data.modified || ""),
     content: body,
-    genre: data.genre || ""
+    genre: data.genre || "",
+    completed: data.completed || false
 };
 
 export const usePost = () => {

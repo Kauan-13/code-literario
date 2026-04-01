@@ -1,9 +1,9 @@
 ---
-id: 3
 title: "parapeito.md"
 created: "2025/07/15"
 modified: "2026/03/29"
 genre: "miniconto"
+completed: true
 ---
 
 # Parapeito

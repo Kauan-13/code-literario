@@ -52,6 +52,10 @@
         padding-right: 2rem;
     }
 
+    .filePage > h1 {
+        font-size: 28px;
+    }
+
     .filePage > p {
         font-size: 16px;
     }

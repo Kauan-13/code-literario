@@ -6,24 +6,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 import FileItem from "../../FileItem";
+import { groupBy } from "../../../utils/utils";
 
 interface Props {
     genre: string,
     posts: Post[],
     isMobile: boolean,
+    isDraft?: boolean,
     onClickCloseBar: () => void
 }
 
-const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
+const SideBarFolder = ({genre, posts, isMobile, isDraft = false,  onClickCloseBar}: Props) => {
     const [contentVisibility, setContentVisibility] = useState(false);
     const navigate = useNavigate();
 
+    const postsByCompleted = groupBy(posts, "completed");
+
     return (
         <li>
-            <div className={`${style.items} ${style.folderItem}`} 
+            <div className={`${style.items} ${style.folderItem} ${isDraft && style.draft}`} 
                 onClick={() => {
                     setContentVisibility(true);
-                    navigate("/folder/" + genre);
+                    if (isDraft) 
+                        navigate("/folder/" + genre + "/_draft") 
+                    else
+                        navigate("/folder/" + genre);
+                    
                     if (isMobile) onClickCloseBar();
                 }}>
                 <AnimatePresence mode="wait" initial={false}>
@@ -52,15 +60,26 @@ const SideBarFolder = ({genre, posts, isMobile,  onClickCloseBar}: Props) => {
                         {contentVisibility ? <FaFolderOpen/> : <FaFolder/>}
                     </motion.div>
                 </AnimatePresence>
-                <p>{genre}</p>
+                <p>{isDraft ? "_rascunhos" : genre}</p>
             </div>
             {
                 contentVisibility &&
                 <ul className={style.ulFiles}>
                     {
-                        posts.map((post, key) => (
+                        postsByCompleted.true?.map((post, key) => (
                             <FileItem key={key} title={post.title} link={"/file/" + post.title} className={style.fileItem} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
+                        ))   
+                    }
+                    {
+                        isDraft ? 
+                        postsByCompleted.false?.map((post, key) => (
+                            <FileItem key={key} title={post.title} link={"/file/" + post.title} className={`${style.fileItem} ${style.fileItemDraft}`} isMobile={isMobile} onClickCloseBar={onClickCloseBar}/>
                         ))
+
+                        :
+
+                        postsByCompleted.false &&
+                        <SideBarFolder genre={genre} posts={postsByCompleted.false} isMobile={isMobile} onClickCloseBar={onClickCloseBar} isDraft/>
                     }
                 </ul>
             }

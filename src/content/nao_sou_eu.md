@@ -1,9 +1,9 @@
 ---
-id: 4
 title: "nao_sou_eu.md"
 created: "2026/01/27"
 modified: "2026/01/27"
 genre: "monologo"
+completed: true
 ---
 
 # NÃO SOU EU

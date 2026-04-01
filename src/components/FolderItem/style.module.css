@@ -1,0 +1,14 @@
+.items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.icon {
+    min-width: 18px;
+    min-height: 18px;
+}

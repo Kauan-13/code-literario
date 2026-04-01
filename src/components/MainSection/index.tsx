@@ -35,7 +35,7 @@ const MainSection = ({children, className}: Props) => {
                         {isMobile && !isOpen &&
                             <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/>
                         }
-                        <p>{location.pathname}</p>
+                        <p>{location.pathname} {post?.completed == false ? <i>rascunho</i> : ""}</p>
                     </div>
                     {children}
                 </section>
