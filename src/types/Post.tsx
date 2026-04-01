@@ -5,6 +5,7 @@ interface Post {
     modified: Date;
     content: string;
     genre: string;
+    completed: boolean;
 }
 
 export type {Post}

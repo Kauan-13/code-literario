@@ -1,9 +1,9 @@
 ---
-id: 1
 title: "atardado.md"
 created: "2025/03/30"
 modified: "2026/03/29"
 genre: "monologo"
+completed: true
 ---
 
 # Atardado

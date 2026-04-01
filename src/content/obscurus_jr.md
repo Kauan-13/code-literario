@@ -1,9 +1,9 @@
 ---
-id: 2
 title: "obscurus_jr.md"
 created: "2026/01/27"
 modified: "2026/03/29"
 genre: "miniconto"
+completed: true
 ---
 
 # OBSCURUS JR
