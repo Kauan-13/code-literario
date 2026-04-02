@@ -4,6 +4,7 @@
     --text-main: #1a1a1a;
     --border-color: rgba(0, 0, 0, 0.2);
     --hover-color: #e0e1e6;
+    --accent-color: #1a1a1a;
 }
 
 [data-theme="dark"] {

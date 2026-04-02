@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 type Theme = string | "system" | "dark" | "light" | "bege" | "green";
 
@@ -12,7 +12,7 @@ const ThemeContext = createContext<IThemeContext>({
     setTheme: () => {}
 });
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const getInitialTheme = (): Theme => {
         const savedTheme = localStorage.getItem('theme') as Theme;
         if (savedTheme) return savedTheme;
@@ -39,4 +39,4 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export {ThemeContext, ThemeProvider};
