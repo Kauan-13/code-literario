@@ -1,7 +1,7 @@
 .appWrapper {
     display: flex;
     flex-direction: column;
-    height: 100svh; /* Altura total da tela do celular */
+    height: 100svh;
     width: 100vw;
 }
 
@@ -9,27 +9,47 @@
     flex: 1;
     display: flex;
     overflow: hidden;
+    color: var(--text-main);
 }
 
 .header {
+    position: fixed;
     height: 32px;
-    background-color: #181818;
+    width: 100%;
+    background-color: var(--bg-bars);
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     padding-left: 10px;
 
+    color: var(--text-main);
     user-select: none;
+    gap: 40px;
+}
+
+.logoTitle {
+    display: flex;
     gap: 10px;
 }
 
-.header > img {
+.header > a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.header > a:hover {
+    background-color: var(--hover-color);
+}
+
+.header img {
     height: 20px;
 }
 
-.header > h1 {
-    color: white;
+.header h1 {
     font-size: 16px;
 }
 
@@ -37,20 +57,20 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #1f1f1f;
-    padding-top: 20px;
+    background-color: var(--bg-primary);
+    height: calc(100vh - 96px);
     width: 100%;
-    color: white;
     overflow-y: auto;
+    padding-top: 96px;
 }
 
 .topMain {
     position: fixed;
     min-height: 64px;
     width: 100%;
-    background-color: #181818;
+    background-color: var(--bg-bars);
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     padding-left: 20px;
@@ -66,22 +86,23 @@
 }
 
 .footer {
+    position: fixed;
+    bottom: 0;
+    height: 32px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
 
-    min-height: 35px;
+    min-height: 32px;
     
-    background-color: #181818;
+    background-color: var(--bg-bars);
     box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    border-top: 1px solid var(--border-color);
     
     padding-right: 20px;
-    padding-top: 8px;
-    /* Aqui o segredo: um padding base + a safe area */
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .footer .date {
@@ -89,14 +110,15 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    color: var(--text-main);
 }
 
 .footer > a {
     text-decoration: none;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: var(--text-main);
     gap: 10px;
 }
 
@@ -105,11 +127,25 @@
 }
 
 @media (max-width: 767px) {
+    .appWrapper {
+        display: block; /* Empilha os elementos */
+        height: auto;   /* Deixa crescer conforme o texto */
+        overflow: visible;
+    }
+
     .mainSection {
-        width: 100%
+        width: 100%;
     }
     
     .topMain {
         font-size: 14px;
+    }
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .header a {
+        padding-right: 10px;
     }
 }

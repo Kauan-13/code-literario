@@ -1,5 +1,5 @@
 .folderPage {
-    padding: 84px 8rem;
+    padding: 50px 8rem;
 }
 
 .table {
@@ -9,13 +9,8 @@
 }
 
 .table tr:has(td):hover {
-    background-color: #333333;
+    background-color: var(--hover-color);
     cursor: pointer;
-}
-
-.table a {
-    text-decoration: none;
-    color: white;
 }
 
 .table th {

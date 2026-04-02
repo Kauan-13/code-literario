@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import SideBar from "../SideBar"
 import style from "./style.module.css"
 import fonts from "../../css/fonts.module.css"
@@ -25,8 +25,13 @@ const MainSection = ({children, className}: Props) => {
     return (
         <div className={style.appWrapper}>
             <header className={`${style.header} ${fonts.jetbrainsMono}`}>
+                <div className={style.logoTitle}>
                     <img src="./logo1.png" alt="logo" />
                     <h1>Code Literário</h1>
+                </div>
+                <Link to="/config" onClick={() => setIsOpen(false)}>
+                    <p>Configurações</p>
+                </Link>
             </header>
             <main className={style.main}>
                 <SideBar isOpen={isOpen} isMobile={isMobile} onClickOpen={() => setIsOpen(o => !o)}/>

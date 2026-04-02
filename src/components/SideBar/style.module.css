@@ -1,7 +1,8 @@
 .navBar {
-    height: calc(100vh - 32px);
-    background-color: #181818;
-    color: white;
+    height: calc(100vh - 64px);
+    margin-top: 32px;
+    background-color: var(--bg-bars);
+    color: var(--text-main);
     padding-top: 20px;
 
     display: flex;
@@ -9,7 +10,7 @@
     gap: 10px;
 
     box-sizing: border-box;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid var(--border-color);
 
     user-select: none;
 
@@ -45,17 +46,20 @@
 
 .readme {
     padding: 0px 20px;
+    color: var(--text-main);
 }
 
 .readme:hover {
-    background-color: #333333;
+    background-color: var(--hover-color);
 }
 
 @media (max-width: 767px) {
     .navBar {
         position: fixed;
+        height: calc(100vh + 32px);
         top: 32px;
         left: 0;
-        
+        margin-top: 0;
+        z-index: 1;
     }
 }

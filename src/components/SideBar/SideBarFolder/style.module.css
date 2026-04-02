@@ -14,7 +14,7 @@
 }
 
 .items:hover, .fileItem:hover {
-    background-color: #333333;
+    background-color: var(--hover-color);
 }
 
 .ulFiles {
