@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = "dark" | "light" | "bege" | "green";
+type Theme = string | "system" | "dark" | "light" | "bege" | "green";
 
 interface IThemeContext {
     theme: Theme;
@@ -16,16 +16,20 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const getInitialTheme = (): Theme => {
         const savedTheme = localStorage.getItem('theme') as Theme;
         if (savedTheme) return savedTheme;
-
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return prefersDark ? 'dark' : 'light';
+        return "system"
     };
     
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
+        if (theme != "system") {
+            document.documentElement.setAttribute('data-theme', theme);
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
         localStorage.setItem('theme', theme);
+
     }, [theme]);
 
     return (

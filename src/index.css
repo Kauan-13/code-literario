@@ -12,6 +12,7 @@
     --text-main: #ffffff;
     --border-color: rgba(255, 255, 255, 0.2);
     --hover-color: #333333;
+    --accent-color: #bbbbbb;
 }
 
 [data-theme="bege"] {
@@ -20,6 +21,7 @@
     --text-main: #433422;
     --border-color: rgba(67, 52, 34, 0.2);
     --hover-color: #d6c9b9;
+    --accent-color: #433422;
 }
 
 [data-theme="green"] {
@@ -28,6 +30,7 @@
     --text-main: #3b4a45;
     --border-color: rgb(0, 12, 0, 0.2);
     --hover-color: #a2ccad;
+    --accent-color: #3b4a45;
 }
 
 *{
@@ -50,6 +53,17 @@ li {
     list-style-type: none;
     margin: 0;            
     padding: 0;            
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent-color);
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--border-color); /* Cor da borda padrão */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 /* 1. Largura do scroll */
