@@ -1,5 +1,5 @@
 .filePage {
-    padding: 84px 8rem;
+    padding: 50px 8rem;
     letter-spacing: 0.20ch;
     word-wrap: break-word;
     -webkit-hyphens: auto; 
@@ -9,7 +9,7 @@
 }
 
 .filePage h1 {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 10px;
     
     max-width: 800px;

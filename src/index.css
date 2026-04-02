@@ -1,10 +1,47 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-bars: #f5f5f5;
+    --text-main: #1a1a1a;
+    --border-color: rgba(0, 0, 0, 0.2);
+    --hover-color: #e0e1e6;
+    --accent-color: #1a1a1a;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1f1f1f;
+    --bg-bars: #181818;
+    --text-main: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --hover-color: #333333;
+    --accent-color: #bbbbbb;
+}
+
+[data-theme="bege"] {
+    --bg-primary: #f5e6d3;
+    --bg-bars: #e8d8c3;
+    --text-main: #433422;
+    --border-color: rgba(67, 52, 34, 0.2);
+    --hover-color: #d6c9b9;
+    --accent-color: #433422;
+}
+
+[data-theme="green"] {
+    --bg-primary: #c5e7ce;
+    --bg-bars: #b3d0ba;
+    --text-main: #3b4a45;
+    --border-color: rgb(0, 12, 0, 0.2);
+    --hover-color: #a2ccad;
+    --accent-color: #3b4a45;
+}
+
 *{
     margin: 0;
 }
 
 body {
-  background-color: #181818;
-  padding-bottom: env(safe-area-inset-bottom, 20px);
+    background-color: var(--bg-bars);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    transition: background-color 0.5s;
 }
 
 ul {
@@ -17,6 +54,17 @@ li {
     list-style-type: none;
     margin: 0;            
     padding: 0;            
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent-color);
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--border-color); /* Cor da borda padrão */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 /* 1. Largura do scroll */
