@@ -1,0 +1,63 @@
+.selectContainer { 
+    width: 200px; 
+    position: relative; 
+    cursor: pointer; 
+    font-family: sans-serif; 
+}
+
+.selectHeader {
+  padding: 10px; 
+  border: 1px solid var(--border-color); 
+  border-radius: 4px;
+  display: flex; 
+  justify-content: space-between; 
+  background: var(--bg-bars);
+}
+
+.selectList {
+  position: absolute; 
+  width: 100%; 
+  border: 1px solid var(--border-color);
+  border-top: none; 
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+  background: var(--bg-bars); 
+  z-index: 10; 
+  border-radius: 0 0 4px 4px;
+}
+
+.jetbrains {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.times {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.selectItem { 
+    padding: 10px; transition: background 0.2s; 
+}
+
+.selectItem[value="roboto"] {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.selectItem[value="roboto"] {
+    font-family: "Roboto", sans-serif;
+}
+
+.selectItem[value="times"] {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.selectItem:hover {
+  background-color: var(--hover-color); /* Mude para a cor que desejar */
+}
+
+.arrow { transition: transform 0.3s; font-size: 0.8em; }
+.arrow.open { transform: rotate(180deg); }

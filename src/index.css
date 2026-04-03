@@ -5,6 +5,11 @@
     --border-color: rgba(0, 0, 0, 0.2);
     --hover-color: #e0e1e6;
     --accent-color: #1a1a1a;
+
+    --font-family: "JetBrains Mono", monospace;
+    --font-optical-sizing: auto;
+    --font-weight: 450;
+    --font-style: normal;
 }
 
 [data-theme="dark"] {
@@ -32,6 +37,20 @@
     --border-color: rgb(0, 12, 0, 0.2);
     --hover-color: #a2ccad;
     --accent-color: #3b4a45;
+}
+
+[data-font="roboto"] {
+    --font-family: "Roboto", sans-serif;
+    --font-optical-sizing: auto;
+    --font-weight: 450;
+    --font-style: normal;
+}
+
+[data-font="times"] {
+    --font-family: 'Times New Roman', Times, serif;
+    --font-optical-sizing: auto;
+    --font-weight: 450;
+    --font-style: normal;
 }
 
 *{
@@ -65,6 +84,19 @@ input[type="checkbox"] {
   outline: none;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+select {
+  text-indent: 0.01px;
+  text-overflow: '';
+  outline: none;
+  border: none;
+  margin-left: 10px;
+}
+
+option:hover {
+    font-size: 50px;
+    box-shadow: 0 0 10px 100px #8c9497 inset;
 }
 
 /* 1. Largura do scroll */

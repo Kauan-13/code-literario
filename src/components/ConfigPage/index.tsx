@@ -1,12 +1,21 @@
-import useTheme from "../../hooks/useThemes";
+import useFont from "../../hooks/useFont";
+import useTheme from "../../hooks/useTheme";
+import CustomSelect from "./CustomSelect";
 import style from "./style.module.css";
 
 const ConfigPage = () => {
 
     const {theme, setTheme} = useTheme();
+    const {font, setFont} = useFont();
 
     return (
-        <div className={style.configs}>
+        <section className={style.configs}>
+            <h1>Aparência</h1>
+            <h2>Fonte</h2>
+            <div className={style.fontConfig}>
+                Fonte:
+                <CustomSelect options={["jetbrains", "roboto", "times"]} onSelect={(font: string) => setFont(font)} selectedOption={font}/>
+            </div>
             <h2>Temas</h2>
             <div className={style.themeButtons}>
                 <button className={`${style.button} ${style.system}`} onClick={() => setTheme("system")}>
@@ -60,7 +69,7 @@ const ConfigPage = () => {
                     </div>
                 </button>
             </div>
-        </div>
+        </section>
     )
 }
 

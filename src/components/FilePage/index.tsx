@@ -2,9 +2,9 @@ import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import style from "./style.module.css";
-import fonts from "../../css/fonts.module.css";
 import type { Post } from "../../types/Post";
 import NotFound from "../NotFound";
+import fonts from "../../css/fonts.module.css";
 
 const FilePage = () => {
     const { title } = useParams<{ title: string }>();
@@ -22,7 +22,7 @@ const FilePage = () => {
     }
     
     return (
-        <section className={`${style.filePage} ${fonts.jetbrainsMono} ${post?.genre == "poema" && style.poema}`}>
+        <section className={`${style.filePage} ${fonts.filePageFont} ${post?.genre == "poema" && style.poema}`}>
             <ReactMarkdown>
                 {post?.content}
             </ReactMarkdown>

@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import FileItem from "../FileItem";
 import style from "./style.module.css"
-import fonts from "../../css/fonts.module.css";
 import useIsMobile from "../../hooks/useIsMobile";
 import NotFound from "../NotFound";
 import { groupBy } from "../../utils/utils";
@@ -27,7 +26,7 @@ const FolderPage = ({isDraft = false}: Props) => {
     const postsByCompleted = groupBy(postByGenre, "completed")
 
     return (
-        <section className={`${style.folderPage} ${fonts.jetbrainsMono}`}>
+        <section className={`${style.folderPage}`}>
             <h1>{`${isDraft ? "rascunhos" : ""} ${genre}`}</h1>
             <table className={style.table}>
                 <thead>

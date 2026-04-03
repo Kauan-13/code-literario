@@ -8,7 +8,7 @@ interface IThemeContext {
 }
 
 const ThemeContext = createContext<IThemeContext>({
-    theme: 'dark' as Theme,
+    theme: "light" as Theme,
     setTheme: () => {}
 });
 

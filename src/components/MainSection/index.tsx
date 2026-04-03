@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom"
 import SideBar from "../SideBar"
 import style from "./style.module.css"
-import fonts from "../../css/fonts.module.css"
 import { useState } from "react"
 import useIsMobile from "../../hooks/useIsMobile"
 import { BsLayoutSidebar } from "react-icons/bs"
 import { FaCalendar, FaGithub } from "react-icons/fa6";
 import usePost from "../../hooks/usePost"
+import fonts from "../../css/fonts.module.css"
 
 interface Props {
     className?: string
@@ -23,8 +23,8 @@ const MainSection = ({children, className}: Props) => {
     const post = posts.find(p => p.title == location.pathname.split("/").at(-1));
 
     return (
-        <div className={style.appWrapper}>
-            <header className={`${style.header} ${fonts.jetbrainsMono}`}>
+        <div className={`${style.appWrapper} ${fonts.jetbrainsMono}`}>
+            <header className={`${style.header}`}>
                 <div className={style.logoTitle}>
                     <img src="./logo1.png" alt="logo" />
                     <h1>Code Literário</h1>
@@ -36,7 +36,7 @@ const MainSection = ({children, className}: Props) => {
             <main className={style.main}>
                 <SideBar isOpen={isOpen} isMobile={isMobile} onClickOpen={() => setIsOpen(o => !o)}/>
                 <section className={`${style.mainSection} ${className}`}>
-                    <div className={`${style.topMain} ${fonts.jetbrainsMono}`}> 
+                    <div className={`${style.topMain}`}> 
                         {isMobile && !isOpen &&
                             <BsLayoutSidebar className={style.icon} onClick={() => setIsOpen(o => !o)}/>
                         }
@@ -45,7 +45,7 @@ const MainSection = ({children, className}: Props) => {
                     {children}
                 </section>
             </main>
-            <footer className={`${style.footer} ${fonts.jetbrainsMono}`}>
+            <footer className={`${style.footer}`}>
                 {post &&
                     <div className={style.date}>
                         <FaCalendar/>

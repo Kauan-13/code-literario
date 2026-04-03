@@ -12,6 +12,19 @@
     margin-right: auto;
 }
 
+.fontConfig {
+    max-width: 800px;
+    min-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fontConfig select {
+    background-color: var(--bg-bars);
+    color: var(--text-main);
+    font-size: 16px;
+}
+
 .themeButtons {
     display: flex;
     flex-wrap: wrap;
